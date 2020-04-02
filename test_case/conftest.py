@@ -9,7 +9,9 @@ import os
 @time: 2019/6/6 11:10
 @desc:
 '''
-@pytest.fixture(scope="session",autouse=True)
+
+
+@pytest.fixture(scope="session", autouse=True)
 def env_config(request):
     """
     读取yml配置文件
@@ -19,7 +21,9 @@ def env_config(request):
     config_path = os.path.abspath(rootPath + 'config\\env_config.yml')  # 获取tran.csv文件的路径
     with open(config_path) as f:
         env_config = yaml.load(f) #读取配置文件
+    print(env_config)
     return env_config
+
 
 def get_root_path(project_name):
     curPath = os.path.abspath(os.path.dirname(__file__))
